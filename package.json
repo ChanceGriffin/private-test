@@ -1,0 +1,15 @@
+{
+  "name": "2022-09-28-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akachi",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.4",
+    "puppeteer": "^18.0.5"
+  }
+}
