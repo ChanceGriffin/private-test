@@ -20,7 +20,7 @@ var scraperStart = async function (){
     ])
     const page1 = await browser.newPage();
     await page1.setDefaultNavigationTimeout(0);
-    await page.waitForSelector(".boxbody")
+    await page.waitForSelector(".item-content")
     const {argv} = require('process')
     const targetUrl = argv[2]
     console.log("url", targetUrl);
