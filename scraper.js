@@ -20,11 +20,12 @@ var scraperStart = async function (){
     ])
     const page1 = await browser.newPage();
     await page1.setDefaultNavigationTimeout(0);
-    await page.waitForSelector(".item_content")
+    
     const {argv} = require('process')
     const targetUrl = argv[2]
     console.log("url", targetUrl);
     await page1.goto(targetUrl, {waitUntil: 'load'});
+    await page1.waitForSelector(".item_content")
     // await page1.waitForNavigation({waitUntil: 'networkidle2'});
     console.log("---")
     const data = await page1.content()
