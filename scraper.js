@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-
+const fs = require('fs');
 var base = "https://lomex.hu/hu/homepage";
 
 var scraperStart = async function (){
@@ -27,7 +27,12 @@ var scraperStart = async function (){
     // await page1.waitForNavigation({waitUntil: 'networkidle2'});
     console.log("---")
     const data = await page1.content()
-    console.log("data: " + (data));
+    // console.log("data: " + (data));
+    
+    fs.writeFile('result.txt', data, function (err) {
+        if (err) return console.log(err);
+        console.log('Wrote');
+    });
     // await page.$eval("nick", el => console.log("elemnet is:", el.innerText));
     page.close();
     page1.close();
