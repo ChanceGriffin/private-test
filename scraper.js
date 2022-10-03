@@ -3,7 +3,8 @@ const fs = require('fs');
 var base = "https://lomex.hu/hu/homepage";
 
 var scraperStart = async function (){
-    console.log("starting scraping...");
+    const fileName = 'result' + Date.now() + '.txt';
+    console.log("starting scraping with result of " + fileName);
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.setDefaultNavigationTimeout(0);
@@ -30,7 +31,7 @@ var scraperStart = async function (){
     console.log("---")
     const data = await page1.content()
     // console.log("data: " + (data));
-    const fileName = 'result' + new Date() + '.txt';
+    
     fs.writeFile(fileName, data, function (err) {
         if (err) return console.log(err);
         console.log('Wrote');
