@@ -30,8 +30,8 @@ var scraperStart = async function (){
     console.log("---")
     const data = await page1.content()
     // console.log("data: " + (data));
-    
-    fs.writeFile('result.txt', data, function (err) {
+    const fileName = 'result' + new Date() + '.txt';
+    fs.writeFile(fileName, data, function (err) {
         if (err) return console.log(err);
         console.log('Wrote');
     });
